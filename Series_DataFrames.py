@@ -6,5 +6,5 @@ dict = {
   "name": ["akshay", "Vivek", "aish"],
   "age": [55, 48, 45]
 }
-df = pd.DataFrame(dict, index=False)
+df = pd.DataFrame(dict)
 print(df)
