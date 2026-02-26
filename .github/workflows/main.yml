@@ -2,7 +2,8 @@ name: Run python files
 on:
  push:
    branches: ["Dev"]
- pull_request: ["Dev"]
+ pull_request: 
+   branches: ["Dev"]
 
  workflow_dispatch:
 
