@@ -1,0 +1,23 @@
+name: Run python files
+on:
+ push:
+   branches: ["Dev"]
+ pull_request: ["Dev"]
+
+ workflow_dispatch:
+
+jobs:
+   Python:
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: action/checkout@v4
+
+        - name: Install python
+          run: |
+             apt update cache
+             apt install python3
+             python -m pip install pandas
+
+        - name: run py file
+          run: python3 Series_DataFrame.py
