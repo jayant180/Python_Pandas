@@ -1,7 +1,7 @@
 name: Run python files
 on:
  push:
-   branches: ["Dev"]
+   branches: ["master"]
  pull_request: 
    branches: ["Dev"]
 
@@ -12,13 +12,17 @@ jobs:
       runs-on: ubuntu-latest
 
       steps:
-        - uses: action/checkout@v4
+        - uses: actions/checkout@v4
+        
+        - name: use python setup
+          uses: actions/setup-python@v5
+          with:
+            python_version: '3.11'
 
-        - name: Install python
+        - name: Install dependencies
           run: |
-             apt update cache
-             apt install python3
-             python -m pip install pandas
-
+            python -m pip install --upgrade pip
+            pip install pandas 
+            
         - name: run py file
           run: python3 Series_DataFrame.py
